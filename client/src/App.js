@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
+import axios from "axios";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/layouts/Header";
+import Navbar from "./components/layouts/Navbar";
+import Footer from "./components/layouts/Footer";
+import Articles from "./components/Articles";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/articles")
+      .then((res) => setPosts(res.data))
+      .catch((error) => console.log(error));
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Navbar />
+      <Route to="/" render={() => <Articles posts={posts} />} />
+      <Footer />
     </div>
   );
 }
