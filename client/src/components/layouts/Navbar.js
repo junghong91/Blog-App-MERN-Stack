@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <nav className="navbar navbar-expand-lg navbar-light px-5 py-1">
-        <Link className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img style={{ width: "70px" }} src={logo} alt="logo" />
         </Link>
         <button
