@@ -7,6 +7,7 @@ import Header from "./components/layouts/Header";
 import Navbar from "./components/layouts/Navbar";
 import Footer from "./components/layouts/Footer";
 import Articles from "./components/Articles";
+import Article from "./components/Article";
 import AddArticle from "./components/layouts/AddArticle";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Navbar />
       <Route exact path="/" render={() => <Articles posts={posts} />} />
       <Route path="/add-article" component={AddArticle} />
+      <Route path="/article/:id" render={(props) => <Article {...props} />} />
       <Footer />
     </div>
   );

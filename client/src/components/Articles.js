@@ -11,7 +11,13 @@ const Articles = ({ posts }) => {
       ) : (
         posts.map((article, key) => (
           <div className="container" key={key}>
-            <h2>{article.title}</h2>
+            <Link
+              to={{
+                pathname: `/article/${article._id}`,
+              }}
+            >
+              <h2>{article.title}</h2>
+            </Link>
             <p>{article.article}</p>
             <span className="badge badge-secondary p-2">
               {article.authorname}
