@@ -9,6 +9,7 @@ import Footer from "./components/layouts/Footer";
 import Articles from "./components/Articles";
 import Article from "./components/Article";
 import AddArticle from "./components/layouts/AddArticle";
+import EditArticle from "./components/layouts/EditArticle";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -25,6 +26,10 @@ function App() {
       <Route exact path="/" render={() => <Articles posts={posts} />} />
       <Route path="/add-article" component={AddArticle} />
       <Route path="/article/:id" render={(props) => <Article {...props} />} />
+      <Route
+        path="/update/:id"
+        render={(props) => <EditArticle {...props} />}
+      />
       <Footer />
     </div>
   );

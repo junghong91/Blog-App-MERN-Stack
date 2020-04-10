@@ -24,7 +24,12 @@ const Articles = ({ posts }) => {
             </span>
             <div className="row my-4">
               <div className="col-sm-2">
-                <Link className="btn btn-outline-success" to="/edit-article">
+                <Link
+                  to={{
+                    pathname: `/update/${article._id}`,
+                  }}
+                  className="btn btn-outline-success"
+                >
                   Edit Article
                 </Link>
               </div>
